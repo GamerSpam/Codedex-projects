@@ -9,9 +9,9 @@ while play == True: #handles playing again
 
     while player == 0: #handles bad input
         print('')
-        print('=================================')
-        print(c("Rock Paper Scissors Lizzard Spock", 'blue'))
-        print(c('=================================', 'blue'))
+        print('================================')
+        print(c("Rock Paper Scissors Lizard Spock", 'blue'))
+        print(c('================================', 'blue'))
         print('1) ✊')
         print('2) 🤚')
         print('3) ✌️')
