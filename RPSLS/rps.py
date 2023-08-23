@@ -119,6 +119,7 @@ while play == True: #handles playing again
             print(c('invalid input', 'red'))
             print('')
         else:
-            play = bool(usin)
+            play = bool(usin) #if input is true the game restarts from line 7
+            #sets values to 0 in case the user decides to play again
             inv = 0
             player = 0
