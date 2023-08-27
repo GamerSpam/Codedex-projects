@@ -1,10 +1,10 @@
 # Calculator lesson from Codedex
 
-# WIP I am searching for a way to remove the trailing zeros from non decimal numbers.
-
 from decimal import * # Allows me perform arithmatic on floating point and integer numbers without trailing 0s on integers. It also cleans up the output so that you don't get weird floating point errors.
 
-while True: # error handling on the input from the user. I could probably combine the error handleing on my inputs into a single function
+from decimal import *
+
+while True:
     try:
         deci = int(input('Max decimal places? '))
         break
