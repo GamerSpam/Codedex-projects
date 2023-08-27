@@ -2,8 +2,7 @@
 
 # WIP I am searching for a way to remove the trailing zeros from non decimal numbers.
 
-import sys
-
+from sys import _ExitCode
 
 def add(a, b):
     result = a + b
@@ -70,7 +69,7 @@ What operation do you wish to perform?
             print('Please input a number')
         except:
             if op == 6:
-                sys._ExitCode
+                _ExitCode
             else:
                 print('Please enter a number in the list')
     
@@ -87,7 +86,5 @@ What operation do you wish to perform?
             break
         except ZeroDivisionError:
             print('Cannot divide by zero.\nPlease reneter value 2.')
-
-
 
 calc()
