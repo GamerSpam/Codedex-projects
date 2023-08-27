@@ -2,8 +2,6 @@
 
 from decimal import * # Allows me perform arithmatic on floating point and integer numbers without trailing 0s on integers. It also cleans up the output so that you don't get weird floating point errors.
 
-from decimal import *
-
 while True:
     try:
         deci = int(input('Max decimal places? '))
