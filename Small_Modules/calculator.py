@@ -2,6 +2,19 @@
 
 # WIP I am searching for a way to remove the trailing zeros from non decimal numbers.
 
+from decimal import *
+
+while True:
+    try:
+        deci = int(input('Max decimal places? '))
+        break
+    except ValueError:
+        print('Please enter an integer.')
+
+getcontext().prec = deci
+
+Cont = True
+
 def add(a, b):
     result = a + b
     return result
@@ -31,7 +44,7 @@ def exp(a, b):
 def inp2():
     while True:
         try:
-            val2 = float(input('\nWhat is the second value? '))
+            val2 = Decimal(input('\nWhat is the second value? '))
             return val2
         except ValueError:
             print('Value must be a number.')
@@ -48,7 +61,7 @@ def calc():
 
     print('''
 
-What operation do you wish to perform? 
+What operation do you wish to perform?
 1) addition
 2) subtraction
 3) multiplaction
@@ -70,10 +83,10 @@ What operation do you wish to perform?
                 exit()
             else:
                 print('Please enter a number in the list')
-    
+
     while True:
         try:
-            val1 = float(input('\nWhat is the first value? '))
+            val1 = Decimal(input('\nWhat is the first value? '))
             break
         except ValueError:
             print('Value must be a number.')
@@ -84,5 +97,16 @@ What operation do you wish to perform?
             break
         except ZeroDivisionError:
             print('Cannot divide by zero.\nPlease reneter value 2.')
-
-calc()
+while Cont:
+    calc()
+    while True:
+        con = input('''Calculate another value? (y/n)
+''')
+        if con == 'y':
+            Cont = True
+            break
+        elif con == 'n':
+            Cont = False
+            break
+        else:
+            print('please enter "y" or "n"')
