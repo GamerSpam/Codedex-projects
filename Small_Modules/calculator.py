@@ -28,12 +28,6 @@ def multiply(a, b):
     return result
 
 def divide(a, b):
-    try:
-        result = a / b
-        return result
-    except TypeError:
-        a = int(a)
-        b = int(b)
         result = a / b
         return result
 
