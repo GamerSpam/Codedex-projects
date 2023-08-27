@@ -2,18 +2,16 @@
 
 # WIP I am searching for a way to remove the trailing zeros from non decimal numbers.
 
-from decimal import *
+from decimal import * # Allows me perform arithmatic on floating point and integer numbers without trailing 0s on integers. It also cleans up the output so that you don't get weird floating point errors.
 
-while True:
+while True: # error handling on the input from the user. I could probably combine the error handleing on my inputs into a single function
     try:
         deci = int(input('Max decimal places? '))
         break
     except ValueError:
         print('Please enter an integer.')
 
-getcontext().prec = deci
-
-Cont = True
+getcontext().prec = deci # Allows the user to set the desired number of decimal places to be displayed. This will be used as the max number of decimal places.
 
 def add(a, b):
     result = a + b
@@ -38,24 +36,23 @@ def exp(a, b):
 def inp2():
     while True:
         try:
-            val2 = Decimal(input('\nWhat is the second value? '))
+            val2 = Decimal(input('\nWhat is the second value? ')) # Handles the second variable. this is not stored outside the function.
             return val2
         except ValueError:
             print('Value must be a number.')
 
-operation = [add, subtract, multiply, divide, exp]
+operation = [add, subtract, multiply, divide, exp] # allows me to call the function from the list
 
-def calc():
+def calc(): # places the main program inside a function to eliminate the need for an overall while loop.
     print('''
 ==========================
 ======= Calculator =======
-==========================
-        ''')
+==========================''')
 
 
     print('''
-
 What operation do you wish to perform?
+
 1) addition
 2) subtraction
 3) multiplaction
@@ -64,7 +61,7 @@ What operation do you wish to perform?
 6) quit
 ''')
 
-    while True:
+    while True: # handles errors in selection of operation.
         try:
             op = int(input())
             if op < 1 or op > 5:
@@ -80,27 +77,18 @@ What operation do you wish to perform?
 
     while True:
         try:
-            val1 = Decimal(input('\nWhat is the first value? '))
+            val1 = Decimal(input('\nWhat is the first value? ')) # Converts the output to a decimal using the decimal module
             break
         except ValueError:
             print('Value must be a number.')
 
     while True:
         try:
-            print(operation[op - 1](val1, inp2()))
+            print(operation[op - 1](val1, inp2())) # pulls the function based on the users selection, and feeds the variables into it.
+            input('Press \'enter\' to continue ')
             break
-        except ZeroDivisionError:
+        except ZeroDivisionError: # In the event that someone tries to divide by zero.
             print('Cannot divide by zero.\nPlease reneter value 2.')
-while Cont:
+
+while True: # Keeps the program running until the user quits
     calc()
-    while True:
-        con = input('''Calculate another value? (y/n)
-''')
-        if con == 'y':
-            Cont = True
-            break
-        elif con == 'n':
-            Cont = False
-            break
-        else:
-            print('please enter "y" or "n"')
